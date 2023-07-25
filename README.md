@@ -1,3 +1,102 @@
+
+<h1>Confetti React Hooks </h1>
+
+![](confetti.gif)
+
+<h2>Implementation </h2>
+step1
+Values passed into the use confetti function
+The function useConfetti receives an object with four properties: bestTime, setBestTime, bestDiceRoll, and setBestDiceRoll. 
+These properties represent the best time and best dice roll values, along with their corresponding setter functions for updating the values. 
+The useConfetti function deals with handling confetti animations when a new best time or best dice roll is achieved.
+
+step2
+The useRef hook
+The useRef hook is a built-in React hook that allows you to create and manage a reference to a value or an element. 
+It helps you preserve a value across renders without causing a re-render, unlike state variables managed by the useState hook.
+useRef is especially useful when you need to interact with DOM elements, access previous values, or store a mutable variable that persists throughout the component's lifecycle.
+
+//In this project, the useRef hook is used to create a reference to the JSConfetti library's instance. 
+//This reference allows the addConfetti function to be called across different renders of the component.
+// By using useRef, the reference is maintained throughout the component's lifecycle, ensuring that the confetti effect works consistently whenever it's triggered.
+
+//step3
+//Return confetti logic
+//To return the desired confetti based on the outcome of the game, we write three functions:
+
+//newBestGame
+//newBestTime
+//newBestDiceRoll
+//The new best time function returns time ⏱ confetti, the new best dice roll function returns dice 🎲 confetti, and the new best game function returns trophy 🏆 confetti.
+
+step4
+The new best time function
+The newBestTime function sets the bestTime state to true and the bestDiceRoll state to false.
+
+
+step-5
+The confetti function
+The confetti function creates a confetti animation with different emojis based on the conditions: if both bestTime and bestDiceRoll are true, it shows a trophy emoji 🏆; if only bestTime is true, it shows a timer emoji ⏱; and if only bestDiceRoll is true, it shows a dice emoji 🎲.
+
+The confetti function uses an if-else statement to check the conditions. Based on the conditions, it calls the jsConfetti.current.addConfetti method twice, once for confetti colors and once for emojis. The commonOptions object contains shared properties for both confetti animations. The spread operator ... is used to include the commonOptions properties in each confetti animation.
+
+step-6
+The useEffect hook
+The useEffect hook sets up a side effect in the component, which runs after the component renders. In this case, it initializes the JSConfetti instance and assigns it to jsConfetti.current. The empty array [], as the second argument, ensures that the effect runs only once on the component mount and does not re-run on updates.
+
+Side effects are actions or operations that occur outside the scope of the component's render cycle, such as API calls, timers, event listeners, or DOM manipulations.
+
+stp-7
+The return statement
+The return statement returns an object containing four functions:
+
+confetti
+newBestTime
+newBestDiceRoll
+newBestGame
+These functions can be used by the component that calls this custom hook to trigger confetti animations and update the best time and best dice roll values.
+
+step-8
+Export the custom hook
+The export default exports the useConfetti function as the default export from the module.
+
+step-9
+The App JSX file
+At the top of the App.jsx file, we will import the necessary hook, library, and CSS file:
+
+step-10
+Inside the App function, we initially set up the variables.
+The following code creates two state variables along with their setter functions:
+
+bestTime: initially set to false
+bestDiceRoll: initially set to false
+
+step-11
+The next code block calls the useConfetti custom hook with an object containing state variables bestTime and bestDiceRoll, along with their setter functions.
+
+The custom hook returns an object containing the four functions we defined in the useConfetti JSX file:
+
+confetti
+newBestTime
+newBestDiceRoll
+newBestGame
+These functions are then destructured and assigned to their respective variables for future use within the component.
+
+step-12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

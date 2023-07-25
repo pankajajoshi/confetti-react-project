@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import useConfetti from './hooks/useConfetti';
+import './App.css'
 
 function App() {
+  const [bestTime, setBestTime] = useState(false);
+  const [bestDiceRoll, setBestDiceRoll] = useState(false);
+  
   return (
     <div className="App">
       <header className="App-header">
