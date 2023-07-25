@@ -83,7 +83,19 @@ newBestGame
 These functions are then destructured and assigned to their respective variables for future use within the component.
 
 step-12
+The return statement
+Note: This whole return statement is for temporary control of the React confetti custom hook. When you incorporate it into your React project, the state variables newBestTime and newBestDiceRoll will trigger the confetti when they change.
 
+This return statement renders a section with the className "confetti," and inside this section, various conditional renderings occur:
+
+If both bestTime and bestDiceRoll are false, it shows a message "Choose a React state, and click celebrate!".
+If both bestTime and bestDiceRoll are true, it displays "🏆New Best Game!🏆".
+If only bestDiceRoll is true, it displays "🎲New Best Dice Roll!🎲".
+If only bestTime is true, it displays "⏱New Best Time!⏱".
+It also renders four buttons that trigger the functions newBestTime, newBestDiceRoll, newBestGame, and confetti when clicked.
+
+step-13
+styles added in App.css
 
 
 

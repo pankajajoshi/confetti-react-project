@@ -1,22 +1,28 @@
 body {
   margin: 0;
   display: flex;
-  /* place-items: center; */
+   place-items: center; 
   justify-content: center;
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: whitesmoke;
+  background-color:lemonchiffon;
 }
-
+.confetti{
+  align-items: center;
+  font-size: 40px;
+}
 button {
 	margin: 10px 34px 0 0;
 	padding: 10px 20px;
-	font-size: 1rem;
+	font-size: 2rem;
+  align-items: center;
+  font-weight: bold;
+  
 	border: none;
 	border-radius: 5px;
-	background-color: #4CAF50;
-	color: white;
+	background-color: #af4c6d;
+	color: rgb(33, 31, 31);
 	cursor: pointer;
   }
   
