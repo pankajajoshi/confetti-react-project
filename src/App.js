@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
-import useConfetti from './hooks/useConfetti';
+import useConfetti from './Hooks/useConfetti';
 import './App.css'
 
 function App() {
   const [bestTime, setBestTime] = useState(false);
   const [bestDiceRoll, setBestDiceRoll] = useState(false);
-  
+  const { confetti, newBestTime, newBestDiceRoll, newBestGame } = useConfetti({ bestTime, setBestTime, bestDiceRoll, setBestDiceRoll });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="confetti">
+    {!bestTime && !bestDiceRoll && <h1>Choose a React state, and click celebrate!</h1>} 
+
+    {bestTime && bestDiceRoll ? (
+    <h1>🏆New Best Game!🏆</h1>
+    ) : bestDiceRoll ? (
+    <h1>🎲New Best Dice Roll!🎲</h1>
+    ) : bestTime ? (
+    <h1>⏱New Best Time!⏱</h1>
+) : null}
+
+      <div>
+        <button onClick={newBestTime}>newBestTime</button>
+        <button onClick={newBestDiceRoll}>newBestDiceRoll</button>
+        <button onClick={newBestGame}>newBestGame</button>
+      </div>
+        <button onClick={confetti}>Celebrate!</button>
+    </section>
   );
-}
+};
 
 export default App;
